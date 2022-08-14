@@ -37,7 +37,7 @@ int main()
 
 	while(1) //main control loop,
 	{		
-    pulseMotors(pwmSpeed1, pwmSpeed2, usecs, pulses); //send motor power pulse to motors
+    		pulseMotors(pwmSpeed1, pwmSpeed2, usecs, pulses); //send motor power pulse to motors
 	}	
 	return 0;	
 }
@@ -51,35 +51,35 @@ void pulseMotors(int motor1, int motor2, unsigned int usecs, unsigned int pulses
 	for(int x = 0; x < pulses; x++ )
 	{
 		if(motor1 > 0){                   //setup initial conditions before each pwm cycle
-			//cout<<"+motor1 true"<<endl;
-      digitalWrite(0,1);
-      digitalWrite(1,0);
+		//cout<<"+motor1 true"<<endl;
+      		digitalWrite(0,1);
+      		digitalWrite(1,0);
 			
 		}else if(motor1 < 0){
-			//cout<<"-motor1 true"<<endl;
-      digitalWrite(0,0);
-      digitalWrite(1,1);	
+		//cout<<"-motor1 true"<<endl;
+      		digitalWrite(0,0);
+      		digitalWrite(1,1);	
 				
 		}else{
-			//cout<<"motor1 false"<<endl;	
-      digitalWrite(0,0);
-      digitalWrite(1,0);	
+		//cout<<"motor1 false"<<endl;	
+      		digitalWrite(0,0);
+      		digitalWrite(1,0);	
 		}
 		
 		if(motor2 > 0){                
-			//cout<<"+motor1 true"<<endl;
-      digitalWrite(3,1);
-      digitalWrite(4,0);
+		//cout<<"+motor1 true"<<endl;
+      		digitalWrite(3,1);
+      		digitalWrite(4,0);
 			
 		}else if(motor2 < 0){
-			//cout<<"-motor1 true"<<endl;
-      digitalWrite(3,0);
-      digitalWrite(4,1);	
+		//cout<<"-motor1 true"<<endl;
+      		digitalWrite(3,0);
+      		digitalWrite(4,1);	
 				
 		}else{
-			//cout<<"motor1 false"<<endl;	
-      digitalWrite(3,0);
-      digitalWrite(4,0);	
+		//cout<<"motor1 false"<<endl;	
+     		digitalWrite(3,0);
+      		digitalWrite(4,0);	
 		}
 		
 		for(int i = 1 ; i < 100 ; i++) //subdivision of each pulse
@@ -89,14 +89,14 @@ void pulseMotors(int motor1, int motor2, unsigned int usecs, unsigned int pulses
 			{
 				if(i == motor1){
 					//cout<<"+motor1 false"<<endl;
-          digitalWrite(0,0);				
+          			digitalWrite(0,0);				
 				}
 
 			}else{   //negative
 			
 				if(i == abs(motor1)){
 					//cout<<"-motor1 false"<<endl;
-          digitalWrite(1,0);
+         			digitalWrite(1,0);
 				}
 			}
 					
@@ -105,14 +105,14 @@ void pulseMotors(int motor1, int motor2, unsigned int usecs, unsigned int pulses
 			{
 				if(i == motor2){
 					//cout<<"+motor2 false"<<endl;
-          digitalWrite(3,0);				
+          			digitalWrite(3,0);				
 				}
 
 			}else{   //negative
 			
 				if(i == abs(motor2)){
 					//cout<<"-motor2 false"<<endl;
-          digitalWrite(4,0);
+          			digitalWrite(4,0);
 				}
 			}
 			usleep(usecs);		
